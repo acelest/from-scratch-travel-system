@@ -1,0 +1,126 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+ECRIS LES TEXTES EN ANGLAIS PARTTOUT DANS LES PAGES
+
+# Travel Booking Platform - Cursor AI Rules
+
+## Project Context
+Frontend-only travel booking platform with flights + taxi transfers.
+Tech stack: HTML5, CSS3 (Tailwind CDN), Vanilla JavaScript ES6+.
+No backend, no database - mock data only.
+
+## Code Style & Standards
+
+### HTML
+- Use semantic HTML5 tags (header, main, section, footer)
+- Always include alt text for images
+- Use meaningful IDs and classes
+- Form inputs must have labels
+- Mobile-first responsive design
+
+### CSS
+- Use Tailwind CSS utility classes primarily
+- Custom CSS only for animations and complex effects
+- Follow BEM naming for custom classes if needed
+- Mobile breakpoints: sm (640px), md (768px), lg (1024px)
+- Always include hover states for interactive elements
+
+### JavaScript
+- ES6+ syntax only (const/let, arrow functions, template literals)
+- Use modules (import/export)
+- Async/await for promises, avoid .then()
+- Descriptive variable names (no single letters except loops)
+- Comments in French for complex logic
+- Handle errors with try/catch
+- Validate user inputs
+
+## File Organization
+
+travel-booking/
+├── index.html              # Landing page
+├── search.html             # Search & results page
+├── styles/
+│   ├── base.css           # Reset, variables, typography
+│   ├── components.css     # Reusable components
+│   └── pages.css          # Page-specific styles
+├── js/
+│   ├── data.js            # Mock data (airports, flights, transfers)
+│   ├── search.js          # Search logic, autocomplete, filters
+│   ├── booking.js         # Modal booking, form validation
+│   └── utils.js           # Helper functions
+└── assets/
+└── favicon.ico
+
+## Specific Requirements
+
+### Autocomplete
+- Show max 5 suggestions
+- Filter by city name OR airport code
+- Close dropdown on blur (with 150ms delay)
+- Keyboard navigation (arrow keys, enter)
+
+### Search Form
+- Validate all required fields before submit
+- Show loading spinner during "search" (2 seconds)
+- Set min date to today for date inputs
+- Default dates: tomorrow (departure), +7 days (return)
+- Toggle return date visibility based on trip type
+
+### Flight Cards
+- Display: airline, times, duration, stops, price
+- Hover effect: lift card with shadow
+- Badges for "Best Price", "Direct", "Fastest"
+- Click "Select" opens booking modal
+
+### Booking Modal
+- Backdrop blur effect
+- Slide-in animation from right
+- 3 sections: flight summary, passenger form, taxi addon
+- Real-time price calculation
+- Form validation before payment simulation
+- Generate random confirmation code (format: SKXXXXXXXX)
+
+### Responsive Design
+- Mobile: stack all form inputs vertically
+- Desktop: grid layout for form (5 columns)
+- Touch targets min 44px on mobile
+- Test on Chrome DevTools device toolbar
+
+## Do NOT Include
+- No backend code (PHP, Node.js)
+- No database queries
+- No real API calls
+- No authentication/login system
+- No localStorage/sessionStorage (causes bugs)
+- No jQuery or other libraries
+- No build tools (Webpack, Vite)
+
+## Testing Checklist
+Before considering code complete:
+- [ ] Works on Chrome desktop
+- [ ] Works on mobile (DevTools)
+- [ ] No console errors
+- [ ] All buttons clickable
+- [ ] Forms validate properly
+- [ ] Modal opens/closes correctly
+- [ ] Prices calculate correctly
+- [ ] Responsive on all breakpoints
+
+## Common Pitfalls to Avoid
+- Forgetting `type="module"` in script tags
+- Z-index conflicts (modal backdrop should be 40, content 50)
+- Date input format must be YYYY-MM-DD
+- Event listeners: use addEventListener, not onclick attributes
+- Import paths: use relative paths (./data.js not /data.js)
+- Tailwind classes: only use core utilities (no custom config)
+
+## When Generating Code
+1. Always include comments for complex logic
+2. Use descriptive variable names
+3. Handle edge cases (empty results, invalid input)
+4. Add loading states for async operations
+5. Include hover/focus states for UI elements
+6. Make everything mobile-responsive by default
