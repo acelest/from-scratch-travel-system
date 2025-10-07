@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotels - SkyMove | Find & Book Luxury Hotels Worldwide</title>
+    <meta
+      name="description"
+      content="Find and book the best hotels worldwide with SkyMove. Discover luxury accommodations, premium hotels, and amazing deals. Book your perfect stay today."
+    />
+    <meta name="keywords" content="hotels, booking, luxury hotels, accommodation, travel, hotel deals, premium hotels, worldwide hotels" />
+    <meta name="author" content="SkyMove" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://skymove.com/hotels.html" />
+    <meta property="og:title" content="Hotels - SkyMove | Find & Book Luxury Hotels Worldwide" />
+    <meta property="og:description" content="Find and book the best hotels worldwide with SkyMove. Discover luxury accommodations, premium hotels, and amazing deals." />
+    <meta property="og:image" content="https://skymove.com/assets/hotels-og-image.jpg" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://skymove.com/hotels.html" />
+    <meta property="twitter:title" content="Hotels - SkyMove | Find & Book Luxury Hotels Worldwide" />
+    <meta property="twitter:description" content="Find and book the best hotels worldwide with SkyMove. Discover luxury accommodations, premium hotels, and amazing deals." />
+    <meta property="twitter:image" content="https://skymove.com/assets/hotels-og-image.jpg" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="public/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="public/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="public/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="public/favicon-16x16.png" />
+    <link rel="manifest" href="public/site.webmanifest" />
+
+    <!-- Font Awesome pour les icônes -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/components.css" />
+    <link rel="stylesheet" href="styles/pages.css" />
+    <link rel="stylesheet" href="styles/landing.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "SkyMove Hotels",
+      "url": "https://skymove.com/hotels.html",
+      "description": "Find and book the best hotels worldwide with SkyMove",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://skymove.com/hotels.html?destination={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+  </head>
+  <body class="hotels-page">
+    <!-- ========== NAVBAR STICKY ========== -->
+    <nav class="navbar" id="navbar">
+      <div class="container">
+        <div class="navbar-content">
+          <!-- Logo -->
+          <a href="index.html" class="navbar-logo">SkyMove</a>
+
+          <!-- Navigation Links (desktop) -->
+          <div class="navbar-links" id="navbar-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="search.html" class="nav-link">Flights</a>
+            <a href="hotels.html" class="nav-link active">Hotels</a>
+            <a href="index.html#destinations" class="nav-link">Destinations</a>
+            <a href="index.html#team" class="nav-link">Team</a>
+            <a href="index.html#contact" class="nav-link">Contact</a>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="navbar-badges">
+            <span class="badge"
+              ><i class="fas fa-lock"></i> Secure Booking</span
+            >
+            <span class="badge"><i class="fas fa-star"></i> 4.8/5 Rating</span>
+            <span class="badge"
+              ><i class="fas fa-bed"></i> 10K+ Hotels</span
+            >
+          </div>
+
+          <!-- Burger Menu (mobile) -->
+          <button class="burger-menu" id="burger-menu" aria-label="Toggle menu">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ========== HOTELS HERO SECTION ========== -->
+    <section class="hotels-hero-section">
+      <div class="container">
+        <div class="hotels-hero-content">
+          <h1 class="hotels-hero-title">Find Your Perfect Hotel</h1>
+          <p class="hotels-hero-subtitle">
+            Discover luxury accommodations and amazing deals worldwide
+          </p>
+
+          <!-- Hotel Search Form -->
+          <div class="hotel-search-container">
+            <form id="hotel-search-form" class="hotel-search-form">
+              <div class="hotel-search-grid">
+                <!-- Destination -->
+                <div class="form-field">
+                  <label for="hotel-destination" class="field-label">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Destination
+                  </label>
+                  <div class="autocomplete-container">
+                  <input
+                    type="text"
+                    id="hotel-destination"
+                    class="hotel-input"
+                    placeholder="Where are you going?"
+                    required
+                    minlength="2"
+                    maxlength="50"
+                  />
+                    <div class="autocomplete-dropdown" id="hotel-dropdown">
+                      <div class="suggestion-item" data-city="paris">
+                        <strong>Paris</strong> - France
+                      </div>
+                      <div class="suggestion-item" data-city="london">
+                        <strong>London</strong> - United Kingdom
+                      </div>
+                      <div class="suggestion-item" data-city="new-york">
+                        <strong>New York</strong> - USA
+                      </div>
+                      <div class="suggestion-item" data-city="tokyo">
+                        <strong>Tokyo</strong> - Japan
+                      </div>
+                      <div class="suggestion-item" data-city="dubai">
+                        <strong>Dubai</strong> - UAE
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Check-in Date -->
+                <div class="form-field">
+                  <label for="checkin-date" class="field-label">
+                    <i class="fas fa-calendar-check"></i>
+                    Check-in
+                  </label>
+                  <input type="date" id="checkin-date" class="date-input" required />
+                </div>
+
+                <!-- Check-out Date -->
+                <div class="form-field">
+                  <label for="checkout-date" class="field-label">
+                    <i class="fas fa-calendar-times"></i>
+                    Check-out
+                  </label>
+                  <input type="date" id="checkout-date" class="date-input" required />
+                </div>
+
+                <!-- Guests -->
+                <div class="form-field">
+                  <label for="guests" class="field-label">
+                    <i class="fas fa-users"></i>
+                    Guests
+                  </label>
+                  <select id="guests" class="guests-select" required>
+                    <option value="">Select guests</option>
+                    <option value="1">1 Guest</option>
+                    <option value="2">2 Guests</option>
+                    <option value="3">3 Guests</option>
+                    <option value="4">4 Guests</option>
+                    <option value="5">5+ Guests</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Search Button -->
+              <div class="hotel-search-actions">
+                <button type="submit" class="hotel-search-button" id="hotel-search-button">
+                  <span class="button-text">Search Hotels</span>
+                  <i class="fas fa-bed"></i>
+                  <div class="loading-spinner hidden">
+                    <i class="fas fa-spinner fa-spin"></i>
+                  </div>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FEATURED HOTELS SECTION ========== -->
+    <section class="featured-hotels-section">
+      <div class="container">
+        <h2 class="section-title">Featured Hotels</h2>
+        <div class="hotels-grid">
+          <!-- Hotel Card 1 -->
+          <div class="hotel-card" data-hotel="ritz-carlton">
+            <div class="hotel-image">
+              <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop" alt="The Ritz Carlton" />
+              <div class="hotel-badge luxury">Luxury</div>
+            </div>
+            <div class="hotel-content">
+              <div class="hotel-header">
+                <h3 class="hotel-name">The Ritz Carlton</h3>
+                <div class="hotel-rating">
+                  <i class="fas fa-star"></i>
+                  <span>4.8</span>
+                </div>
+              </div>
+              <p class="hotel-location">
+                <i class="fas fa-map-marker-alt"></i> Paris, France
+              </p>
+              <div class="hotel-features">
+                <span class="feature-tag"><i class="fas fa-wifi"></i> Free WiFi</span>
+                <span class="feature-tag"><i class="fas fa-swimming-pool"></i> Pool</span>
+                <span class="feature-tag"><i class="fas fa-dumbbell"></i> Gym</span>
+              </div>
+              <div class="hotel-footer">
+                <div class="hotel-price">
+                  <span class="price-amount">€299</span>
+                  <span class="price-period">/night</span>
+                </div>
+                <button class="btn-book-hotel" data-hotel="ritz-carlton">
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hotel Card 2 -->
+          <div class="hotel-card" data-hotel="four-seasons">
+            <div class="hotel-image">
+              <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400&h=300&fit=crop" alt="Four Seasons" />
+              <div class="hotel-badge premium">Premium</div>
+            </div>
+            <div class="hotel-content">
+              <div class="hotel-header">
+                <h3 class="hotel-name">Four Seasons</h3>
+                <div class="hotel-rating">
+                  <i class="fas fa-star"></i>
+                  <span>4.9</span>
+                </div>
+              </div>
+              <p class="hotel-location">
+                <i class="fas fa-map-marker-alt"></i> London, UK
+              </p>
+              <div class="hotel-features">
+                <span class="feature-tag"><i class="fas fa-wifi"></i> Free WiFi</span>
+                <span class="feature-tag"><i class="fas fa-spa"></i> Spa</span>
+                <span class="feature-tag"><i class="fas fa-utensils"></i> Restaurant</span>
+              </div>
+              <div class="hotel-footer">
+                <div class="hotel-price">
+                  <span class="price-amount">€399</span>
+                  <span class="price-period">/night</span>
+                </div>
+                <button class="btn-book-hotel" data-hotel="four-seasons">
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hotel Card 3 -->
+          <div class="hotel-card" data-hotel="waldorf-astoria">
+            <div class="hotel-image">
+              <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=300&fit=crop" alt="Waldorf Astoria" />
+              <div class="hotel-badge luxury">Luxury</div>
+            </div>
+            <div class="hotel-content">
+              <div class="hotel-header">
+                <h3 class="hotel-name">Waldorf Astoria</h3>
+                <div class="hotel-rating">
+                  <i class="fas fa-star"></i>
+                  <span>4.7</span>
+                </div>
+              </div>
+              <p class="hotel-location">
+                <i class="fas fa-map-marker-alt"></i> New York, USA
+              </p>
+              <div class="hotel-features">
+                <span class="feature-tag"><i class="fas fa-wifi"></i> Free WiFi</span>
+                <span class="feature-tag"><i class="fas fa-car"></i> Valet</span>
+                <span class="feature-tag"><i class="fas fa-concierge-bell"></i> Concierge</span>
+              </div>
+              <div class="hotel-footer">
+                <div class="hotel-price">
+                  <span class="price-amount">€499</span>
+                  <span class="price-period">/night</span>
+                </div>
+                <button class="btn-book-hotel" data-hotel="waldorf-astoria">
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hotel Card 4 -->
+          <div class="hotel-card" data-hotel="mandarin-oriental">
+            <div class="hotel-image">
+              <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=400&h=300&fit=crop" alt="Mandarin Oriental" />
+              <div class="hotel-badge premium">Premium</div>
+            </div>
+            <div class="hotel-content">
+              <div class="hotel-header">
+                <h3 class="hotel-name">Mandarin Oriental</h3>
+                <div class="hotel-rating">
+                  <i class="fas fa-star"></i>
+                  <span>4.8</span>
+                </div>
+              </div>
+              <p class="hotel-location">
+                <i class="fas fa-map-marker-alt"></i> Tokyo, Japan
+              </p>
+              <div class="hotel-features">
+                <span class="feature-tag"><i class="fas fa-wifi"></i> Free WiFi</span>
+                <span class="feature-tag"><i class="fas fa-spa"></i> Spa</span>
+                <span class="feature-tag"><i class="fas fa-swimming-pool"></i> Pool</span>
+              </div>
+              <div class="hotel-footer">
+                <div class="hotel-price">
+                  <span class="price-amount">€349</span>
+                  <span class="price-period">/night</span>
+                </div>
+                <button class="btn-book-hotel" data-hotel="mandarin-oriental">
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hotel Card 5 -->
+          <div class="hotel-card" data-hotel="burj-al-arab">
+            <div class="hotel-image">
+              <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop" alt="Burj Al Arab" />
+              <div class="hotel-badge luxury">Luxury</div>
+            </div>
+            <div class="hotel-content">
+              <div class="hotel-header">
+                <h3 class="hotel-name">Burj Al Arab</h3>
+                <div class="hotel-rating">
+                  <i class="fas fa-star"></i>
+                  <span>4.9</span>
+                </div>
+              </div>
+              <p class="hotel-location">
+                <i class="fas fa-map-marker-alt"></i> Dubai, UAE
+              </p>
+              <div class="hotel-features">
+                <span class="feature-tag"><i class="fas fa-wifi"></i> Free WiFi</span>
+                <span class="feature-tag"><i class="fas fa-swimming-pool"></i> Pool</span>
+                <span class="feature-tag"><i class="fas fa-helicopter"></i> Helipad</span>
+              </div>
+              <div class="hotel-footer">
+                <div class="hotel-price">
+                  <span class="price-amount">€899</span>
+                  <span class="price-period">/night</span>
+                </div>
+                <button class="btn-book-hotel" data-hotel="burj-al-arab">
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hotel Card 6 -->
+          <div class="hotel-card" data-hotel="marriott">
+            <div class="hotel-image">
+              <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=400&h=300&fit=crop" alt="Marriott Resort" />
+              <div class="hotel-badge standard">Standard</div>
+            </div>
+            <div class="hotel-content">
+              <div class="hotel-header">
+                <h3 class="hotel-name">Marriott Resort</h3>
+                <div class="hotel-rating">
+                  <i class="fas fa-star"></i>
+                  <span>4.5</span>
+                </div>
+              </div>
+              <p class="hotel-location">
+                <i class="fas fa-map-marker-alt"></i> Barcelona, Spain
+              </p>
+              <div class="hotel-features">
+                <span class="feature-tag"><i class="fas fa-wifi"></i> Free WiFi</span>
+                <span class="feature-tag"><i class="fas fa-swimming-pool"></i> Pool</span>
+                <span class="feature-tag"><i class="fas fa-dumbbell"></i> Gym</span>
+              </div>
+              <div class="hotel-footer">
+                <div class="hotel-price">
+                  <span class="price-amount">€199</span>
+                  <span class="price-period">/night</span>
+                </div>
+                <button class="btn-book-hotel" data-hotel="marriott">
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== HOTEL BOOKING MODAL ========== -->
+    <div id="hotel-booking-modal" class="modal-overlay hidden">
+      <div class="modal-content">
+        <button class="close-modal">&times;</button>
+        
+        <div class="step-form">
+          <!-- Step Header -->
+          <div class="step-header">
+            <h2 class="step-title" id="step-title">Book Your Hotel</h2>
+            <p class="step-subtitle" id="step-subtitle">Step 1 of 3</p>
+          </div>
+
+          <!-- Step Progress -->
+          <div class="step-progress">
+            <div class="step-indicator active" id="step-1">1</div>
+            <div class="step-line" id="line-1"></div>
+            <div class="step-indicator pending" id="step-2">2</div>
+            <div class="step-line" id="line-2"></div>
+            <div class="step-indicator pending" id="step-3">3</div>
+          </div>
+
+          <!-- Step Content -->
+          <div class="step-content">
+            <!-- Step 1: Hotel Summary -->
+            <div class="step" id="step-content-1">
+              <div class="step-summary" id="modal-hotel-summary">
+                <h4>The Ritz Carlton</h4>
+                <p>Paris, France</p>
+                <p>Price: <strong class="price" data-price="299">€299</strong> per night</p>
+              </div>
+              
+              <div class="step-form-group">
+                <label for="room-type">Room Type</label>
+                <select id="room-type" required>
+                  <option value="">Select room type</option>
+                  <option value="standard">Standard Room</option>
+                  <option value="deluxe">Deluxe Room</option>
+                  <option value="suite">Suite</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Step 2: Personal Information -->
+            <div class="step hidden" id="step-content-2">
+              <div class="step-form-group">
+                <label for="guest-name">Full Name</label>
+                <input
+                  type="text"
+                  id="guest-name"
+                  placeholder="John Doe"
+                  required
+                  minlength="2"
+                  maxlength="50"
+                  pattern="[A-Za-z\s]+"
+                  title="Please enter a valid name (letters and spaces only)"
+                  autocomplete="name"
+                />
+              </div>
+              <div class="step-form-group">
+                <label for="guest-email">Email</label>
+                <input
+                  type="email"
+                  id="guest-email"
+                  placeholder="you@example.com"
+                  required
+                  maxlength="100"
+                  autocomplete="email"
+                />
+              </div>
+              <div class="step-form-group">
+                <label for="guest-phone">Phone</label>
+                <input
+                  type="tel"
+                  id="guest-phone"
+                  placeholder="+91 866 246 9000"
+                  required
+                  pattern="[\+]?[0-9\s\-\(\)]{10,20}"
+                  title="Please enter a valid phone number"
+                  autocomplete="tel"
+                />
+              </div>
+            </div>
+
+            <!-- Step 3: Special Requests & Confirmation -->
+            <div class="step hidden" id="step-content-3">
+              <div class="step-form-group">
+                <label for="special-requests">Special Requests (optional)</label>
+                <textarea
+                  id="special-requests"
+                  rows="3"
+                  placeholder="Any special requests?"
+                  maxlength="500"
+                ></textarea>
+              </div>
+              
+              <div class="step-summary">
+                <h4>Booking Summary</h4>
+                <p id="summary-hotel">The Ritz Carlton</p>
+                <p id="summary-location">Paris, France</p>
+                <p id="summary-room">Room Type: Standard</p>
+                <p>Total Price: <strong class="price" id="hotel-total-price">€299</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step Actions -->
+          <div class="step-actions">
+            <button type="button" class="step-btn step-btn-secondary" id="prev-btn" style="display: none;">
+              ← Previous
+            </button>
+            <button type="button" class="step-btn step-btn-primary" id="next-btn">
+              Next →
+            </button>
+            <button type="button" class="step-btn step-btn-primary hidden" id="confirm-btn">
+              Confirm & Pay
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer-landing">
+      <div class="container">
+        <div class="footer-content">
+          <!-- Description -->
+          <div class="footer-description">
+            <h3 class="footer-logo">SkyMove</h3>
+            <p>
+              Your trusted partner for seamless flight bookings, hotel reservations and airport
+              transfers worldwide.
+            </p>
+          </div>
+
+          <!-- Contact -->
+          <div class="footer-contact">
+            <h4>Contact</h4>
+            <p><i class="fas fa-phone"></i> +91 866 246 9000</p>
+            <p><i class="fas fa-envelope"></i> support@skymove.com</p>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> KL University, Vijayawada,
+              India
+            </p>
+          </div>
+
+          <!-- Payment Methods -->
+          <div class="footer-payment">
+            <h4>Payment Methods</h4>
+            <div class="payment-icons">
+              <i class="fab fa-cc-visa"></i>
+              <i class="fab fa-cc-mastercard"></i>
+              <i class="fab fa-cc-paypal"></i>
+              <i class="fab fa-cc-apple-pay"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 SkyMove. All rights reserved. | Developed at KL
+            University, Vijayawada
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script src="js/hotels.js"></script>
+  </body>
+</html>

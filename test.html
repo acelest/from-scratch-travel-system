@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Test - SkyMove</title>
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <style>
+    body {
+      padding: 40px;
+      background: #f5f5f5;
+    }
+    .test-section {
+      background: white;
+      padding: 30px;
+      margin: 20px 0;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="test-section">
+    <h1 style="color: var(--primary)">CSS Test Page</h1>
+    <p>If you can see styled content below, CSS is loading correctly.</p>
+
+    <div style="margin-top: 20px;">
+      <button class="btn btn-primary">Primary Button</button>
+      <button class="btn btn-secondary" style="margin-left: 10px;">Secondary Button</button>
+    </div>
+
+    <div style="margin-top: 20px;">
+      <p>Primary color: <span style="color: var(--primary); font-weight: bold;">Should be red</span></p>
+      <p>Secondary color: <span style="color: var(--secondary); font-weight: bold;">Should be blue/purple</span></p>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h2>JavaScript Test</h2>
+    <button onclick="testJS()">Click to test JS</button>
+    <p id="js-result"></p>
+  </div>
+
+  <script type="module">
+    import { flights } from './data/mockData.js';
+
+    window.testJS = function() {
+      const result = document.getElementById('js-result');
+      result.innerHTML = `<strong>✅ JavaScript works!</strong><br>Found ${flights.length} flights in mockData.js`;
+      result.style.color = 'green';
+    };
+
+    console.log('Test page loaded, flights:', flights);
+  </script>
+</body>
+</html>
