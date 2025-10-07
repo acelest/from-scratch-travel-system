@@ -4,13 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SkyMove - Your Journey Starts Here</title>
-    <meta name="description" content="Book flights and airport transfers in one seamless experience with SkyMove." />
+    <meta
+      name="description"
+      content="Book flights and airport transfers in one seamless experience with SkyMove."
+    />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-
+    <link rel="icon" type="image/x-icon" href="public/favicon.ico" />
     <!-- Font Awesome pour les icônes -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
 
     <!-- CSS -->
     <link rel="stylesheet" href="styles/base.css" />
@@ -20,16 +25,33 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body class="landing-page">
+    <div
+      class="scroll-progress"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: var(--primary);
+        transform-origin: left;
+        transform: scaleX(0);
+        z-index: 2000;
+      "
+    ></div>
     <!-- ========== NAVBAR STICKY ========== -->
     <nav class="navbar" id="navbar">
       <div class="container">
         <div class="navbar-content">
           <!-- Logo -->
           <a href="#top" class="navbar-logo">SkyMove</a>
-          
+
           <!-- Navigation Links (desktop) -->
           <div class="navbar-links" id="navbar-links">
             <a href="#top" class="nav-link">Home</a>
@@ -38,14 +60,18 @@
             <a href="#team" class="nav-link">Team</a>
             <a href="#contact" class="nav-link">Contact</a>
           </div>
-          
+
           <!-- Trust Badges -->
           <div class="navbar-badges">
-            <span class="badge"><i class="fas fa-lock"></i> Secure Booking</span>
+            <span class="badge"
+              ><i class="fas fa-lock"></i> Secure Booking</span
+            >
             <span class="badge"><i class="fas fa-star"></i> 4.8/5 Rating</span>
-            <span class="badge"><i class="fas fa-plane"></i> 2M+ Travelers</span>
+            <span class="badge"
+              ><i class="fas fa-plane"></i> 2M+ Travelers</span
+            >
           </div>
-          
+
           <!-- Burger Menu (mobile) -->
           <button class="burger-menu" id="burger-menu" aria-label="Toggle menu">
             <span class="burger-line"></span>
@@ -59,24 +85,109 @@
     <!-- ========== HERO SECTION ========== -->
     <section class="hero-landing" id="top">
       <div class="hero-overlay"></div>
-      <div class="hero-background" style="background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920&h=1080&fit=crop');"></div>
+      <div
+        class="hero-background"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1920&h=1080&fit=crop');
+        "
+      ></div>
       <div class="container">
         <div class="hero-content-landing">
           <h1 class="hero-title-landing">Your Journey Starts Here</h1>
           <p class="hero-subtitle-landing">
             Book flights and airport transfers in one seamless experience
           </p>
-          <a href="search.html" class="btn btn-hero">
+          <a href="#search" class="btn btn-hero">
             Start Booking <i class="fas fa-arrow-right"></i>
           </a>
-          <p class="hero-features-text">✈️ 500+ Airlines • 🚗 Transfers • 🔒 Secure</p>
+          <p class="hero-features-text">
+            ✈️ 500+ Airlines • 🚗 Transfers • 🔒 Secure
+          </p>
         </div>
       </div>
-      
+
       <!-- Indicateur de scroll -->
       <div class="hero-scroll-indicator">
         <div class="scroll-arrow">↓</div>
         <div class="scroll-text">Scroll to explore</div>
+      </div>
+    </section>
+
+    <!-- ========== LANDING SEARCH SECTION (scroll target) ========== -->
+    <section id="search" class="services-section">
+      <div class="container">
+        <h2 class="section-title">Flight + Taxi Seamless</h2>
+        <div class="form-container" style="max-width: 960px; margin: 0 auto">
+          <form id="landing-search-form" class="search-form">
+            <div class="trip-type-group">
+              <label
+                ><input type="radio" name="trip-type" value="round-trip" />
+                Round-trip</label
+              >
+              <label
+                ><input type="radio" name="trip-type" value="one-way" checked />
+                One-way</label
+              >
+            </div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="from-landing">From</label>
+                <input
+                  id="from-landing"
+                  list="airports-list"
+                  placeholder="Paris CDG"
+                />
+              </div>
+              <div class="form-group">
+                <label for="to-landing">To</label>
+                <input
+                  id="to-landing"
+                  list="airports-list"
+                  placeholder="New York JFK"
+                />
+              </div>
+              <div class="form-group">
+                <label for="depart-landing">Depart</label>
+                <input type="date" id="depart-landing" />
+              </div>
+              <div class="form-group" id="return-landing-wrap">
+                <label for="return-landing">Return</label>
+                <input type="date" id="return-landing" />
+              </div>
+              <div class="form-group">
+                <label for="pax-landing">Passengers</label>
+                <select id="pax-landing">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+            </div>
+            <button
+              class="btn btn-primary btn-search"
+              type="submit"
+              style="margin-top: 16px"
+            >
+              Search Flights
+            </button>
+          </form>
+          <datalist id="airports-list">
+            <option value="Paris CDG"></option>
+            <option value="Paris ORY"></option>
+            <option value="London LHR"></option>
+            <option value="London LGW"></option>
+            <option value="New York JFK"></option>
+            <option value="New York LGA"></option>
+            <option value="Rome FCO"></option>
+            <option value="Tokyo NRT"></option>
+            <option value="Tokyo HND"></option>
+            <option value="Dubai DXB"></option>
+            <option value="Singapore SIN"></option>
+            <option value="Sydney SYD"></option>
+          </datalist>
+        </div>
       </div>
     </section>
 
@@ -95,7 +206,7 @@
               Compare 500+ airlines and find best prices instantly
             </p>
           </div>
-          
+
           <!-- Service Card 2 -->
           <div class="service-card">
             <div class="service-icon">
@@ -106,7 +217,7 @@
               Add professional taxi service directly to your booking
             </p>
           </div>
-          
+
           <!-- Service Card 3 -->
           <div class="service-card">
             <div class="service-icon">
@@ -132,51 +243,86 @@
           <div class="destinations-carousel" id="destinations-carousel">
             <!-- Destination Card 1 -->
             <div class="destination-card">
-              <div class="destination-image" style="background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=500&h=400&fit=crop');"></div>
+              <div
+                class="destination-image"
+                style="
+                  background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=500&h=400&fit=crop');
+                "
+              ></div>
               <div class="destination-content">
                 <h3 class="destination-name">Paris</h3>
                 <p class="destination-price">from €89</p>
-                <a href="search.html" class="btn btn-secondary btn-small">Book Now</a>
+                <a href="search.html" class="btn btn-secondary btn-small"
+                  >Book Now</a
+                >
               </div>
             </div>
-            
+
             <!-- Destination Card 2 -->
             <div class="destination-card">
-              <div class="destination-image" style="background-image: url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=500&h=400&fit=crop');"></div>
+              <div
+                class="destination-image"
+                style="
+                  background-image: url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=500&h=400&fit=crop');
+                "
+              ></div>
               <div class="destination-content">
                 <h3 class="destination-name">London</h3>
                 <p class="destination-price">from €69</p>
-                <a href="search.html" class="btn btn-secondary btn-small">Book Now</a>
+                <a href="search.html" class="btn btn-secondary btn-small"
+                  >Book Now</a
+                >
               </div>
             </div>
-            
+
             <!-- Destination Card 3 -->
             <div class="destination-card">
-              <div class="destination-image" style="background-image: url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=500&h=400&fit=crop');"></div>
+              <div
+                class="destination-image"
+                style="
+                  background-image: url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=500&h=400&fit=crop');
+                "
+              ></div>
               <div class="destination-content">
                 <h3 class="destination-name">New York</h3>
                 <p class="destination-price">from €399</p>
-                <a href="search.html" class="btn btn-secondary btn-small">Book Now</a>
+                <a href="search.html" class="btn btn-secondary btn-small"
+                  >Book Now</a
+                >
               </div>
             </div>
-            
+
             <!-- Destination Card 4 -->
             <div class="destination-card">
-              <div class="destination-image" style="background-image: url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=500&h=400&fit=crop');"></div>
+              <div
+                class="destination-image"
+                style="
+                  background-image: url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=500&h=400&fit=crop');
+                "
+              ></div>
               <div class="destination-content">
                 <h3 class="destination-name">Tokyo</h3>
                 <p class="destination-price">from €549</p>
-                <a href="search.html" class="btn btn-secondary btn-small">Book Now</a>
+                <a href="search.html" class="btn btn-secondary btn-small"
+                  >Book Now</a
+                >
               </div>
             </div>
-            
+
             <!-- Destination Card 5 -->
             <div class="destination-card">
-              <div class="destination-image" style="background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=500&h=400&fit=crop');"></div>
+              <div
+                class="destination-image"
+                style="
+                  background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=500&h=400&fit=crop');
+                "
+              ></div>
               <div class="destination-content">
                 <h3 class="destination-name">Dubai</h3>
                 <p class="destination-price">from €450</p>
-                <a href="search.html" class="btn btn-secondary btn-small">Book Now</a>
+                <a href="search.html" class="btn btn-secondary btn-small"
+                  >Book Now</a
+                >
               </div>
             </div>
           </div>
@@ -194,28 +340,40 @@
         <div class="team-grid">
           <!-- Team Member 1 -->
           <div class="team-card">
-            <div class="team-photo" style="background-image: url('public/member/nitesh.jpg');"></div>
+            <div
+              class="team-photo"
+              style="background-image: url('public/member/nitesh.jpg')"
+            ></div>
             <h3 class="team-name">Nitesh</h3>
             <p class="team-role">CEO & Founder</p>
           </div>
-          
+
           <!-- Team Member 2 -->
           <div class="team-card">
-            <div class="team-photo" style="background-image: url('public/member/aubin.jpg');"></div>
+            <div
+              class="team-photo"
+              style="background-image: url('public/member/aubin.jpg')"
+            ></div>
             <h3 class="team-name">Aubin</h3>
             <p class="team-role">Director</p>
           </div>
-          
+
           <!-- Team Member 3 -->
           <div class="team-card">
-            <div class="team-photo" style="background-image: url('public/member/AMN.jpeg');"></div>
+            <div
+              class="team-photo"
+              style="background-image: url('public/member/AMN.jpeg')"
+            ></div>
             <h3 class="team-name">AMN</h3>
             <p class="team-role">Chief Technology Officer</p>
           </div>
-          
+
           <!-- Team Member 4 -->
           <div class="team-card">
-            <div class="team-photo" style="background-image: url('public/member/A$N.jpg');"></div>
+            <div
+              class="team-photo"
+              style="background-image: url('public/member/A$N.jpg')"
+            ></div>
             <h3 class="team-name">A$N</h3>
             <p class="team-role">Marketing Director</p>
           </div>
@@ -230,7 +388,12 @@
         <div class="testimonials-grid">
           <!-- Testimonial 1 -->
           <div class="testimonial-card">
-            <div class="testimonial-photo" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop');"></div>
+            <div
+              class="testimonial-photo"
+              style="
+                background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop');
+              "
+            ></div>
             <div class="testimonial-stars">
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
@@ -239,15 +402,21 @@
               <i class="fas fa-star"></i>
             </div>
             <p class="testimonial-text">
-              "Best flight booking experience ever! The airport transfer option made everything so convenient."
+              "Best flight booking experience ever! The airport transfer option
+              made everything so convenient."
             </p>
             <p class="testimonial-author">Emma Wilson</p>
             <p class="testimonial-location">London, UK</p>
           </div>
-          
+
           <!-- Testimonial 2 -->
           <div class="testimonial-card">
-            <div class="testimonial-photo" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop');"></div>
+            <div
+              class="testimonial-photo"
+              style="
+                background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop');
+              "
+            ></div>
             <div class="testimonial-stars">
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
@@ -256,15 +425,21 @@
               <i class="fas fa-star"></i>
             </div>
             <p class="testimonial-text">
-              "Great prices and excellent customer support. Highly recommend SkyMove for all your travel needs!"
+              "Great prices and excellent customer support. Highly recommend
+              SkyMove for all your travel needs!"
             </p>
             <p class="testimonial-author">David Martinez</p>
             <p class="testimonial-location">Barcelona, Spain</p>
           </div>
-          
+
           <!-- Testimonial 3 -->
           <div class="testimonial-card">
-            <div class="testimonial-photo" style="background-image: url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop');"></div>
+            <div
+              class="testimonial-photo"
+              style="
+                background-image: url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop');
+              "
+            ></div>
             <div class="testimonial-stars">
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
@@ -273,7 +448,8 @@
               <i class="fas fa-star"></i>
             </div>
             <p class="testimonial-text">
-              "Super easy to use and I saved money on my last trip. The seamless booking process is amazing!"
+              "Super easy to use and I saved money on my last trip. The seamless
+              booking process is amazing!"
             </p>
             <p class="testimonial-author">Sophie Dubois</p>
             <p class="testimonial-location">Paris, France</p>
@@ -294,10 +470,13 @@
               <i class="fas fa-plus faq-icon"></i>
             </button>
             <div class="faq-answer">
-              <p>Yes, free cancellation up to 24h before departure on most fares. Check specific airline policies for details.</p>
+              <p>
+                Yes, free cancellation up to 24h before departure on most fares.
+                Check specific airline policies for details.
+              </p>
             </div>
           </div>
-          
+
           <!-- FAQ Item 2 -->
           <div class="faq-item">
             <button class="faq-question">
@@ -305,10 +484,13 @@
               <i class="fas fa-plus faq-icon"></i>
             </button>
             <div class="faq-answer">
-              <p>All prices include taxes and fees. No hidden charges. What you see is what you pay.</p>
+              <p>
+                All prices include taxes and fees. No hidden charges. What you
+                see is what you pay.
+              </p>
             </div>
           </div>
-          
+
           <!-- FAQ Item 3 -->
           <div class="faq-item">
             <button class="faq-question">
@@ -316,10 +498,13 @@
               <i class="fas fa-plus faq-icon"></i>
             </button>
             <div class="faq-answer">
-              <p>Hand baggage is included in all fares. Check with your specific airline for checked baggage policies and additional services.</p>
+              <p>
+                Hand baggage is included in all fares. Check with your specific
+                airline for checked baggage policies and additional services.
+              </p>
             </div>
           </div>
-          
+
           <!-- FAQ Item 4 -->
           <div class="faq-item">
             <button class="faq-question">
@@ -327,10 +512,13 @@
               <i class="fas fa-plus faq-icon"></i>
             </button>
             <div class="faq-answer">
-              <p>100% secure with SSL encryption and trusted payment partners like Stripe. Your data is protected at all times.</p>
+              <p>
+                100% secure with SSL encryption and trusted payment partners
+                like Stripe. Your data is protected at all times.
+              </p>
             </div>
           </div>
-          
+
           <!-- FAQ Item 5 -->
           <div class="faq-item">
             <button class="faq-question">
@@ -338,7 +526,11 @@
               <i class="fas fa-plus faq-icon"></i>
             </button>
             <div class="faq-answer">
-              <p>Simply add a transfer during booking. Our professional drivers will meet you at the airport with a sign and take you to your destination.</p>
+              <p>
+                Simply add a transfer during booking. Our professional drivers
+                will meet you at the airport with a sign and take you to your
+                destination.
+              </p>
             </div>
           </div>
         </div>
@@ -365,17 +557,23 @@
           <!-- Description -->
           <div class="footer-description">
             <h3 class="footer-logo">SkyMove</h3>
-            <p>Your trusted partner for seamless flight bookings and airport transfers worldwide.</p>
+            <p>
+              Your trusted partner for seamless flight bookings and airport
+              transfers worldwide.
+            </p>
           </div>
-          
+
           <!-- Contact -->
           <div class="footer-contact">
             <h4>Contact</h4>
             <p><i class="fas fa-phone"></i> +91 866 246 9000</p>
             <p><i class="fas fa-envelope"></i> support@skymove.com</p>
-            <p><i class="fas fa-map-marker-alt"></i> KL University, Vijayawada, India</p>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> KL University, Vijayawada,
+              India
+            </p>
           </div>
-          
+
           <!-- Payment Methods -->
           <div class="footer-payment">
             <h4>Payment Methods</h4>
@@ -387,58 +585,120 @@
             </div>
           </div>
         </div>
-        
+
         <!-- Footer Bottom -->
         <div class="footer-bottom">
-          <p>&copy; 2025 SkyMove. All rights reserved. | Developed at KL University, Vijayawada</p>
+          <p>
+            &copy; 2025 SkyMove. All rights reserved. | Developed at KL
+            University, Vijayawada
+          </p>
         </div>
       </div>
     </footer>
 
     <!-- ========== JAVASCRIPT INLINE ========== -->
+    <script src="js/performance-optimizer.js"></script>
     <script>
+      // Landing search section logic: default dates, toggle return, and redirect to search.html with query
+      (function () {
+        const depart = document.getElementById("depart-landing");
+        const retWrap = document.getElementById("return-landing-wrap");
+        const ret = document.getElementById("return-landing");
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        const nextWeek = new Date(today);
+        nextWeek.setDate(nextWeek.getDate() + 7);
+        const fmt = (d) => d.toISOString().split("T")[0];
+        if (depart) {
+          depart.value = fmt(tomorrow);
+          depart.min = fmt(today);
+        }
+        if (ret) {
+          ret.value = fmt(nextWeek);
+          ret.min = fmt(today);
+        }
+        document.querySelectorAll('input[name="trip-type"]').forEach((r) => {
+          r.addEventListener("change", () => {
+            retWrap.style.display =
+              r.value === "one-way" && r.checked ? "none" : "flex";
+          });
+        });
+        // initial
+        retWrap.style.display = "none";
+
+        document
+          .getElementById("landing-search-form")
+          .addEventListener("submit", (e) => {
+            e.preventDefault();
+            const fromStr = document
+              .getElementById("from-landing")
+              .value.trim();
+            const toStr = document.getElementById("to-landing").value.trim();
+            const pax = document.getElementById("pax-landing").value;
+            const trip = document.querySelector(
+              'input[name="trip-type"]:checked'
+            ).value;
+            const code = (s) => (s.match(/([A-Z]{3})$/) || [])[1];
+            const from = code(fromStr);
+            const to = code(toStr);
+            if (!from || !to) {
+              alert("Please select valid airports (e.g., Paris CDG)");
+              return;
+            }
+            const params = new URLSearchParams({
+              from,
+              to,
+              trip,
+              depart: depart.value,
+              passengers: pax,
+            });
+            if (trip === "round-trip") params.set("return", ret.value);
+            window.location.href = `search.html?${params.toString()}`;
+          });
+      })();
       // ========== SMOOTH SCROLL ==========
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
           e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
+          const target = document.querySelector(this.getAttribute("href"));
           if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
           }
         });
       });
 
       // ========== BURGER MENU ==========
-      const burgerMenu = document.getElementById('burger-menu');
-      const navbarLinks = document.getElementById('navbar-links');
+      const burgerMenu = document.getElementById("burger-menu");
+      const navbarLinks = document.getElementById("navbar-links");
 
-      burgerMenu.addEventListener('click', () => {
-        burgerMenu.classList.toggle('active');
-        navbarLinks.classList.toggle('active');
+      burgerMenu.addEventListener("click", () => {
+        burgerMenu.classList.toggle("active");
+        navbarLinks.classList.toggle("active");
       });
 
       // Fermer le menu mobile quand on clique sur un lien
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-          burgerMenu.classList.remove('active');
-          navbarLinks.classList.remove('active');
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          burgerMenu.classList.remove("active");
+          navbarLinks.classList.remove("active");
         });
       });
 
       // ========== NAVBAR SCROLL EFFECT ==========
-      const navbar = document.getElementById('navbar');
-      window.addEventListener('scroll', () => {
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
         if (window.scrollY > 50) {
-          navbar.classList.add('scrolled');
+          navbar.classList.add("scrolled");
         } else {
-          navbar.classList.remove('scrolled');
+          navbar.classList.remove("scrolled");
         }
       });
 
       // ========== DESTINATIONS CAROUSEL ==========
-      const carousel = document.getElementById('destinations-carousel');
-      const prevBtn = document.querySelector('.carousel-prev');
-      const nextBtn = document.querySelector('.carousel-next');
+      const carousel = document.getElementById("destinations-carousel");
+      const prevBtn = document.querySelector(".carousel-prev");
+      const nextBtn = document.querySelector(".carousel-next");
       let scrollAmount = 0;
       let autoScrollInterval;
 
@@ -450,67 +710,74 @@
           } else {
             scrollAmount += carousel.clientWidth;
           }
-          carousel.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+          carousel.scrollTo({ left: scrollAmount, behavior: "smooth" });
         }, 4000);
       }
 
       // Arrêter l'auto-scroll au survol
-      carousel.addEventListener('mouseenter', () => {
+      carousel.addEventListener("mouseenter", () => {
         clearInterval(autoScrollInterval);
       });
 
-      carousel.addEventListener('mouseleave', () => {
+      carousel.addEventListener("mouseleave", () => {
         startAutoScroll();
       });
 
       // Contrôles prev/next
-      nextBtn.addEventListener('click', () => {
+      nextBtn.addEventListener("click", () => {
         scrollAmount += carousel.clientWidth;
         if (scrollAmount >= carousel.scrollWidth - carousel.clientWidth) {
           scrollAmount = 0;
         }
-        carousel.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+        carousel.scrollTo({ left: scrollAmount, behavior: "smooth" });
       });
 
-      prevBtn.addEventListener('click', () => {
+      prevBtn.addEventListener("click", () => {
         scrollAmount -= carousel.clientWidth;
         if (scrollAmount < 0) {
           scrollAmount = carousel.scrollWidth - carousel.clientWidth;
         }
-        carousel.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+        carousel.scrollTo({ left: scrollAmount, behavior: "smooth" });
       });
 
       // Démarrer l'auto-scroll
       startAutoScroll();
 
       // ========== FAQ ACCORDION ==========
-      const faqItems = document.querySelectorAll('.faq-item');
+      const faqItems = document.querySelectorAll(".faq-item");
 
-      faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        const answer = item.querySelector('.faq-answer');
-        const icon = item.querySelector('.faq-icon');
+      faqItems.forEach((item) => {
+        const question = item.querySelector(".faq-question");
+        const answer = item.querySelector(".faq-answer");
+        const icon = item.querySelector(".faq-icon");
 
-        question.addEventListener('click', () => {
-          const isActive = item.classList.contains('active');
+        question.addEventListener("click", () => {
+          const isActive = item.classList.contains("active");
 
           // Fermer tous les autres items
-          faqItems.forEach(otherItem => {
-            otherItem.classList.remove('active');
-            otherItem.querySelector('.faq-answer').style.maxHeight = null;
-            otherItem.querySelector('.faq-icon').classList.remove('fa-minus');
-            otherItem.querySelector('.faq-icon').classList.add('fa-plus');
+          faqItems.forEach((otherItem) => {
+            otherItem.classList.remove("active");
+            otherItem.querySelector(".faq-answer").style.maxHeight = null;
+            otherItem.querySelector(".faq-icon").classList.remove("fa-minus");
+            otherItem.querySelector(".faq-icon").classList.add("fa-plus");
           });
 
           // Toggle l'item cliqué
           if (!isActive) {
-            item.classList.add('active');
-            answer.style.maxHeight = answer.scrollHeight + 'px';
-            icon.classList.remove('fa-plus');
-            icon.classList.add('fa-minus');
+            item.classList.add("active");
+            answer.style.maxHeight = answer.scrollHeight + "px";
+            icon.classList.remove("fa-plus");
+            icon.classList.add("fa-minus");
           }
         });
       });
+    </script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("/sw.js").catch(() => {});
+        });
+      }
     </script>
   </body>
 </html>

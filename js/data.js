@@ -12,8 +12,13 @@ export const AIRPORTS = [
   { code: "NRT", city: "Tokyo", name: "Narita", country: "Japon" },
   { code: "HND", city: "Tokyo", name: "Haneda", country: "Japon" },
   { code: "DXB", city: "Dubai", name: "Dubai International", country: "EAU" },
-  { code: "SYD", city: "Sydney", name: "Kingsford Smith", country: "Australie" },
-  { code: "SIN", city: "Singapour", name: "Changi", country: "Singapour" }
+  {
+    code: "SYD",
+    city: "Sydney",
+    name: "Kingsford Smith",
+    country: "Australie",
+  },
+  { code: "SIN", city: "Singapour", name: "Changi", country: "Singapour" },
 ];
 
 // Données des vols
@@ -30,7 +35,7 @@ export const FLIGHTS = [
     stops: 0,
     price: 540,
     currency: "€",
-    date: "2025-02-15"
+    date: "2025-02-15",
   },
   {
     id: "BA002",
@@ -44,7 +49,7 @@ export const FLIGHTS = [
     stops: 0,
     price: 820,
     currency: "€",
-    date: "2025-02-16"
+    date: "2025-02-16",
   },
   {
     id: "EK003",
@@ -58,7 +63,7 @@ export const FLIGHTS = [
     stops: 1,
     price: 1150,
     currency: "€",
-    date: "2025-02-17"
+    date: "2025-02-17",
   },
   {
     id: "LH004",
@@ -72,7 +77,7 @@ export const FLIGHTS = [
     stops: 0,
     price: 180,
     currency: "€",
-    date: "2025-02-18"
+    date: "2025-02-18",
   },
   {
     id: "SQ005",
@@ -86,35 +91,118 @@ export const FLIGHTS = [
     stops: 0,
     price: 750,
     currency: "€",
-    date: "2025-02-19"
-  }
+    date: "2025-02-19",
+  },
 ];
 
 // Données des transferts aéroport
 export const TRANSFERS = {
-  "CDG": [
+  CDG: [
     { type: "Economy", price: 25, vehicle: "Berline", duration: "45min" },
     { type: "Comfort", price: 35, vehicle: "SUV", duration: "45min" },
-    { type: "Premium", price: 50, vehicle: "Voiture de luxe", duration: "45min" }
+    {
+      type: "Premium",
+      price: 50,
+      vehicle: "Voiture de luxe",
+      duration: "45min",
+    },
   ],
-  "ORY": [
+  ORY: [
     { type: "Economy", price: 20, vehicle: "Berline", duration: "35min" },
     { type: "Comfort", price: 30, vehicle: "SUV", duration: "35min" },
-    { type: "Premium", price: 45, vehicle: "Voiture de luxe", duration: "35min" }
+    {
+      type: "Premium",
+      price: 45,
+      vehicle: "Voiture de luxe",
+      duration: "35min",
+    },
   ],
-  "LHR": [
+  LHR: [
     { type: "Economy", price: 30, vehicle: "Sedan", duration: "60min" },
     { type: "Comfort", price: 40, vehicle: "SUV", duration: "60min" },
-    { type: "Premium", price: 55, vehicle: "Luxury car", duration: "60min" }
+    { type: "Premium", price: 55, vehicle: "Luxury car", duration: "60min" },
   ],
-  "JFK": [
+  JFK: [
     { type: "Economy", price: 40, vehicle: "Sedan", duration: "90min" },
     { type: "Comfort", price: 55, vehicle: "SUV", duration: "90min" },
-    { type: "Premium", price: 75, vehicle: "Luxury car", duration: "90min" }
+    { type: "Premium", price: 75, vehicle: "Luxury car", duration: "90min" },
   ],
-  "FCO": [
+  FCO: [
     { type: "Economy", price: 25, vehicle: "Berline", duration: "50min" },
     { type: "Comfort", price: 35, vehicle: "SUV", duration: "50min" },
-    { type: "Premium", price: 50, vehicle: "Voiture de luxe", duration: "50min" }
-  ]
+    {
+      type: "Premium",
+      price: 50,
+      vehicle: "Voiture de luxe",
+      duration: "50min",
+    },
+  ],
+};
+
+// Données de chauffeurs mock par destination (pour l'option Taxi)
+export const DRIVERS = {
+  CDG: [
+    {
+      id: "DRV-CDG-1",
+      name: "Marc L.",
+      vehicle: "Peugeot 508 (Berline)",
+      rating: 4.8,
+      price: 25,
+      notes: "Fr/En • Siège enfant dispo",
+    },
+    {
+      id: "DRV-CDG-2",
+      name: "Aïcha B.",
+      vehicle: "Toyota RAV4 (SUV)",
+      rating: 4.9,
+      price: 35,
+      notes: "Fr/En • Eau offerte",
+    },
+  ],
+  LHR: [
+    {
+      id: "DRV-LHR-1",
+      name: "John S.",
+      vehicle: "Mercedes E-Class (Premium)",
+      rating: 4.9,
+      price: 55,
+      notes: "En • Meet & Greet",
+    },
+    {
+      id: "DRV-LHR-2",
+      name: "Priya K.",
+      vehicle: "Nissan Leaf (Eco)",
+      rating: 4.7,
+      price: 30,
+      notes: "En • Eco-friendly",
+    },
+  ],
+  JFK: [
+    {
+      id: "DRV-JFK-1",
+      name: "Mike D.",
+      vehicle: "Chevy Suburban (SUV)",
+      rating: 4.8,
+      price: 55,
+      notes: "En • 6 passagers",
+    },
+    {
+      id: "DRV-JFK-2",
+      name: "Ana M.",
+      vehicle: "Toyota Camry (Sedan)",
+      rating: 4.7,
+      price: 40,
+      notes: "En/Es • Rapide",
+    },
+  ],
+  FCO: [
+    {
+      id: "DRV-FCO-1",
+      name: "Luca R.",
+      vehicle: "Alfa Romeo Giulia (Berline)",
+      rating: 4.8,
+      price: 25,
+      notes: "It/En • Local tips",
+    },
+  ],
 };
